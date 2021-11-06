@@ -22,6 +22,7 @@ end
 
 group :development do
   gem 'listen', '~> 3.3'
+  gem 'pry'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
