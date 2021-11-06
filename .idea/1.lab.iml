@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="ModuleRunConfigurationManager">
+    <shared />
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="jdk" jdkName="rbenv: 3.0.2" jdkType="RUBY_SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="activesupport (v5.2.6, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.2.22, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.3, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.9, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="i18n (v1.8.11, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="json (v2.6.1, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jsonapi-serializers (v1.0.1, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="method_source (v1.0.0, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="minitest (v5.14.4, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.15.0, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mustermann (v1.1.1, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.5.8, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pry (v0.14.1, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="puma (v5.5.2, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.3, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-protection (v2.1.0, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rbs (v1.0.4, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby2_keywords (v0.0.5, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sinatra (v2.1.0, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sinatra-contrib (v2.1.0, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sinja (v1.3.0, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.6, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v2.0.10, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.9, rbenv: 3.0.2) [gem]" level="application" />
+  </component>
+</module>
