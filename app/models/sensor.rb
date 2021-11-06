@@ -1,4 +1,6 @@
 class Sensor < ApplicationRecord
+  has_many :readings
+
   scope :all_except, -> (user_id) { where.not(id: user_id)}
 
   def nearest_neighbour

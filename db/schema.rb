@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_06_023128) do
+ActiveRecord::Schema.define(version: 2021_11_06_111959) do
+
+  create_table "readings", force: :cascade do |t|
+    t.float "temperature"
+    t.float "pressure"
+    t.float "humidity"
+    t.float "co"
+    t.string "so2"
+    t.integer "sensor_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sensor_id"], name: "index_readings_on_sensor_id"
+  end
 
   create_table "sensors", force: :cascade do |t|
     t.float "latitude"

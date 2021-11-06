@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :readings
   resources :sensors
   post '/register', to: 'sensors#create'
   get '/nearest/:sensor_id', to: 'nearest#show'
