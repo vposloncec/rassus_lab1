@@ -5,7 +5,7 @@ class SensorsController < ApplicationController
   def index
     @sensors = Sensor.all
 
-    render json: @sensors
+    render json: @sensors, except: [:created_at, :updated_at]
   end
 
   # GET /sensors/1

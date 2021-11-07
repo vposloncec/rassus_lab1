@@ -3,9 +3,17 @@ class ReadingsController < ApplicationController
 
   # GET /readings
   def index
-    @readings = Reading.all
+    if params[:sensor_id]
+      @readings = Sensor.find(params[:sensor_id]).readings
+    else
+      @readings = Reading.all
+    end
 
-    render json: @readings
+    if @readings.empty?
+      render status: :no_content
+    else
+      render json: @readings, except: [:created_at, :updated_at]
+    end
   end
 
   # GET /readings/1
@@ -18,7 +26,7 @@ class ReadingsController < ApplicationController
     @reading = Reading.new(reading_params.merge({'sensor_id': params[:sensor_id]}))
 
     if @reading.save
-      render json: @reading, status: :created, location: @reading
+      render json: @reading, status: :created, location: sensor_readings_url(@reading)
     else
       render json: @reading.errors, status: :unprocessable_entity
     end
