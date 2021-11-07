@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "github.com/vposloncec/rassus_lab1/klijent/proto";
+
+package proto;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc GetReading (GetReadingRequest) returns (Reading) {}
+}
+
+// The request message containing the user's name.
+message GetReadingRequest {
+  string message = 1;
+}
+
+// The response message containing the greetings
+message Reading {
+  float temperature = 1;
+  float pressure = 2;
+  float humidity = 3;
+  float co = 4;
+  float so2 = 5;
+}
