@@ -14,88 +14,88 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// GreeterClient is the client API for Greeter service.
+// SensorClient is the client API for Sensor service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GreeterClient interface {
+type SensorClient interface {
 	// Sends a greeting
 	GetReading(ctx context.Context, in *GetReadingRequest, opts ...grpc.CallOption) (*Reading, error)
 }
 
-type greeterClient struct {
+type sensorClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewGreeterClient(cc grpc.ClientConnInterface) GreeterClient {
-	return &greeterClient{cc}
+func NewSensorClient(cc grpc.ClientConnInterface) SensorClient {
+	return &sensorClient{cc}
 }
 
-func (c *greeterClient) GetReading(ctx context.Context, in *GetReadingRequest, opts ...grpc.CallOption) (*Reading, error) {
+func (c *sensorClient) GetReading(ctx context.Context, in *GetReadingRequest, opts ...grpc.CallOption) (*Reading, error) {
 	out := new(Reading)
-	err := c.cc.Invoke(ctx, "/proto.Greeter/GetReading", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.Sensor/GetReading", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// GreeterServer is the server API for Greeter service.
-// All implementations must embed UnimplementedGreeterServer
+// SensorServer is the server API for Sensor service.
+// All implementations must embed UnimplementedSensorServer
 // for forward compatibility
-type GreeterServer interface {
+type SensorServer interface {
 	// Sends a greeting
 	GetReading(context.Context, *GetReadingRequest) (*Reading, error)
-	mustEmbedUnimplementedGreeterServer()
+	mustEmbedUnimplementedSensorServer()
 }
 
-// UnimplementedGreeterServer must be embedded to have forward compatible implementations.
-type UnimplementedGreeterServer struct {
+// UnimplementedSensorServer must be embedded to have forward compatible implementations.
+type UnimplementedSensorServer struct {
 }
 
-func (UnimplementedGreeterServer) GetReading(context.Context, *GetReadingRequest) (*Reading, error) {
+func (UnimplementedSensorServer) GetReading(context.Context, *GetReadingRequest) (*Reading, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetReading not implemented")
 }
-func (UnimplementedGreeterServer) mustEmbedUnimplementedGreeterServer() {}
+func (UnimplementedSensorServer) mustEmbedUnimplementedSensorServer() {}
 
-// UnsafeGreeterServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GreeterServer will
+// UnsafeSensorServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorServer will
 // result in compilation errors.
-type UnsafeGreeterServer interface {
-	mustEmbedUnimplementedGreeterServer()
+type UnsafeSensorServer interface {
+	mustEmbedUnimplementedSensorServer()
 }
 
-func RegisterGreeterServer(s grpc.ServiceRegistrar, srv GreeterServer) {
-	s.RegisterService(&Greeter_ServiceDesc, srv)
+func RegisterSensorServer(s grpc.ServiceRegistrar, srv SensorServer) {
+	s.RegisterService(&Sensor_ServiceDesc, srv)
 }
 
-func _Greeter_GetReading_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Sensor_GetReading_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetReadingRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GreeterServer).GetReading(ctx, in)
+		return srv.(SensorServer).GetReading(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.Greeter/GetReading",
+		FullMethod: "/proto.Sensor/GetReading",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GreeterServer).GetReading(ctx, req.(*GetReadingRequest))
+		return srv.(SensorServer).GetReading(ctx, req.(*GetReadingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// Greeter_ServiceDesc is the grpc.ServiceDesc for Greeter service.
+// Sensor_ServiceDesc is the grpc.ServiceDesc for Sensor service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Greeter_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "proto.Greeter",
-	HandlerType: (*GreeterServer)(nil),
+var Sensor_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "proto.Sensor",
+	HandlerType: (*SensorServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetReading",
-			Handler:    _Greeter_GetReading_Handler,
+			Handler:    _Sensor_GetReading_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
