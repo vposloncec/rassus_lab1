@@ -20,5 +20,6 @@ message Reading {
   float pressure = 2;
   float humidity = 3;
   float co = 4;
-  float so2 = 5;
+  float no2 = 5;
+  float so2 = 6;
 }
