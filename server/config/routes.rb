@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   resources :sensors do
     resources :readings
     get '/nearest', to: 'nearest#show'

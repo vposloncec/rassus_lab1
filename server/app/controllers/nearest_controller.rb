@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NearestController < ApplicationController
   before_action :set_sensor, only: [:show]
 

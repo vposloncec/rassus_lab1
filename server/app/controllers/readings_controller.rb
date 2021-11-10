@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
 class ReadingsController < ApplicationController
-  before_action :set_reading, only: [:show, :update, :destroy]
+  before_action :set_reading, only: %i[show update destroy]
 
   # GET /readings
   def index
-    if params[:sensor_id]
-      @readings = Sensor.find(params[:sensor_id]).readings
-    else
-      @readings = Reading.all
-    end
+    @readings = if params[:sensor_id]
+                  Sensor.find(params[:sensor_id]).readings
+                else
+                  Reading.all
+                end
 
     if @readings.empty?
       render status: :no_content
     else
-      render json: @readings, except: [:created_at, :updated_at]
+      render json: @readings, except: %i[created_at updated_at]
     end
   end
 
@@ -23,7 +25,7 @@ class ReadingsController < ApplicationController
 
   # POST /readings
   def create
-    @reading = Reading.new(reading_params.merge({'sensor_id': params[:sensor_id]}))
+    @reading = Reading.new(reading_params.merge({ 'sensor_id': params[:sensor_id] }))
 
     if @reading.save
       render json: @reading, status: :created, location: sensor_readings_url(@reading)
@@ -47,6 +49,7 @@ class ReadingsController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_reading
     @reading = Reading.find(params[:id])
@@ -54,7 +57,6 @@ class ReadingsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reading_params
-    params.require(:reading).permit(:temperature, :pressure, :humidity, :co, :so2)
+    params.require(:reading).permit(:temperature, :pressure, :humidity, :co, :so2, :no2)
   end
-
 end

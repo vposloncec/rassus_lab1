@@ -1,11 +1,17 @@
+# frozen_string_literal: true
+
 class SensorsController < ApplicationController
-  before_action :set_sensor, only: [:show, :update, :destroy]
+  before_action :set_sensor, only: %i[show update destroy]
 
   # GET /sensors
   def index
     @sensors = Sensor.all
 
-    render json: @sensors, except: [:created_at, :updated_at]
+    if @sensors.empty?
+      render status: :no_content
+    else
+      render json: @sensors, except: %i[created_at updated_at]
+    end
   end
 
   # GET /sensors/1
@@ -39,13 +45,14 @@ class SensorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sensor
-      @sensor = Sensor.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def sensor_params
-      params.require(:sensor).permit(:latitude, :longitude, :ip, :port)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sensor
+    @sensor = Sensor.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def sensor_params
+    params.require(:sensor).permit(:latitude, :longitude, :ip, :port)
+  end
 end

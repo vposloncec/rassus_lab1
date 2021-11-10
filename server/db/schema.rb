@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 2021_11_06_111959) do
     t.float "pressure"
     t.float "humidity"
     t.float "co"
-    t.string "so2"
+    t.float "so2"
+    t.float "no2"
     t.integer "sensor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
